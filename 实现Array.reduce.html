@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3,4]
+        const sum = arr.reduce((pre,cur)=>{
+            return pre+cur
+        },10)
+        console.log(sum);
+        
+        function reduce1(arr,Fun,initValue = null){
+            let value = initValue === null ? arr[0] : initValue
+            let startIndex = initValue === null ? 1 : 0
+            for(let i = startIndex; i<arr.length;i++){
+                value = Fun(value,arr[i],i)
+            }
+            return value
+        }
+        console.log(reduce1(arr,(pre,cur)=>pre+cur,10));
+        
+    </script>
+</body>
+</html>
