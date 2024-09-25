@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Func(){
+            getName = () => console.log(1);
+            return this
+        }
+        Func.getName = () => console.log(2);
+        Func.prototype.getName = () => console.log(3);
+
+        var getName = () => console.log(4);
+        function getName(){
+            console.log(5);
+        }
+
+        Func.getName() // 2
+        getName() // 4
+        Func().getName() // 1
+        getName() //
+
+        function fn(n,o){
+            console.log(o);
+            
+            return {
+                fn(m){
+                    return fn(m,n)
+                }
+            }
+        }
+        console.log(fn(0).fn(1).fn(2).fn(3));
+        
+    </script>
+</body>
+</html>

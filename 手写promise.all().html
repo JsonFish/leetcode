@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Promise.All1 = (proArr) => {
+            let res, rej;
+            const result = new Promise((resolve,reject)=>{
+                res = resolve;
+                rej = reject;
+            })
+            // 判断长度
+            let i = 0;
+            let fufilled = 0;
+            const resArr = []
+            for( const p of proArr){
+                const index = i
+                i++;
+                // 如果不是promise，包装成promise
+                Promise.resolve(p).then((data)=>{
+                    // 完成的数据汇总到最终结果中
+                    resArr[index] = data;
+                    // 判断是否完成
+                    fufilled++;
+                    if(fufilled===i){
+                        res(resArr)
+                    }
+                    
+                },rej)
+            }
+            if(i===0){
+                res([])
+            }
+
+            return result
+
+        }
+        Promise.All1([Promise.resolve(1),Promise.resolve(2),Promise.reject(123)]).then((res)=>{console.log(res);
+        },(err)=>{console.log(err);
+        })
+    </script>
+</body>
+</html>
