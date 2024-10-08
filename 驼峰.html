@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let string = '-font-size'
+        let arr = string.split('-')
+        if(arr[0] == ''){
+            arr.shift()
+        }
+        for(let i = 1; i<arr.length; i++){
+            arr[i] = arr[i].charAt(0).toUpperCase()+arr[i].slice(1)
+        }
+        console.log(arr.join('')); // fontSize
+        
+    </script>
+</body>
+</html>
