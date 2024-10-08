@@ -12,15 +12,18 @@
             if(nums.length==0){
                 return init
             }
-            nums.unshift(init)
+            if(init != undefined) nums.unshift(init)
+            
+            
             let res ;
             for(let i = 0;i<nums.length-1;i++){
                 res = fn(nums[i],nums[i+1])
                 nums[i+1] = res
             }
             return res
+            
         };
-        reduce([1,2,3,4,5],function sum(accum, curr) { return accum + curr; },0)
+        reduce([1,2,3,4,5],function sum(accum, curr) { return accum + curr; },5)
     </script>
 </body>
 </html>
