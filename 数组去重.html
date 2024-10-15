@@ -35,6 +35,12 @@
         }
         console.log(newArr3);
         
+        // filter + findIndex
+        let newArr4 =  arr.filter((item,index)=>{
+            return arr.findIndex((i)=>i===item) === index
+        })
+        console.log(newArr4);
+        
     </script>
 </body>
 </html>
