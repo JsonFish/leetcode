@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,4,2,3,4,4,5]
+
+        // reduce
+        let result = arr.reduce((pre,cur)=>{
+            return pre.includes(cur)?pre:pre.concat(cur)
+        },[])
+        console.log(result);
+
+        // Set
+        let newArr = [... new Set(arr)]
+        console.log(newArr); 
+        
+        // filter + indexOf
+        let newArr2 = arr.filter((item,index)=>{
+            return arr.indexOf(item) === index
+        })
+        console.log(newArr2);
+        
+        // for + includes
+
+        let newArr3 = []
+        for(let i = 0;i<arr.length;i++){
+            if(!newArr3.includes(arr[i])){
+                newArr3.push(arr[i])
+            }
+        }
+        console.log(newArr3);
+        
+    </script>
+</body>
+</html>
